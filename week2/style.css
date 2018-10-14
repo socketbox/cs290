@@ -1,0 +1,55 @@
+#five_countries {
+  width: 50%;
+  margin-left: 0;
+  margin-right: 50%;
+}
+
+#five_countries * {
+  border: 1px solid black;
+}
+
+#five_countries tbody > tr:nth-of-type(2n) {
+  background-color: cornflowerblue;
+}
+
+#five_countries tbody > tr:nth-of-type(2n+1) {
+  background-color: #8CC896;
+}
+
+#five_countries tbody tr:last-child {
+  background-color: white;
+}
+
+#five_countries > caption {
+  border: none;
+}
+
+.row-head {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.outer-content {
+  width: 75%; 
+  height: 1%;
+  margin-top: 20px;
+  margin-left: 0;
+  margin-right: 25%;
+  background-color: pink;
+  padding: 1% 1rem 1% 1rem;
+}
+
+.inner-content {
+  width: 75%; 
+  text-align: center;
+  background-color: cornflowerblue;
+  margin: 0 auto;
+}
+
+form fieldset {
+  margin: 5px 0 5px 0;
+}
+
+form ul {
+  list-style-type: none;
+}
