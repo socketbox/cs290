@@ -1,8 +1,8 @@
-/*function deepEqual(x, y)
+function deepEqual(x, y)
 {
     if( x == null && y == null)
         return true;
-    if (x == null &! y == null)
+    if ((x == null && y != null) || (y == null && x != null))
         return false;
     else if (typeof(x) != typeof(y) )
         return false;
@@ -14,12 +14,11 @@
         let keysY = Object.keys(y);
         if(keysY.length == keysX.length)
         {
-            let result = true;
             for(let k in x)
             {
-                result = deepEqual(x[k], y[k]);
+                if(deepEqual(x[k], y[k]))
+                    return true;
             } 
-            return result;
         }
         else
         {
@@ -27,9 +26,9 @@
         }
     }
 }
-*/
 
-function deepEqual(x, y)
+
+/*function deepEqual(x, y)
 {
     let flag = true;
     function deeper(x, y)
@@ -61,7 +60,7 @@ function deepEqual(x, y)
     }
     deeper(x, y);
     return flag;
-}
+}*/
 
 let obj1 = 
 {
