@@ -7,12 +7,12 @@ function Automobile( year, make, model, type ){
 
 Automobile.prototype.logMe = function(b)
 {
-  let propArr = Object.entries(this);
+  let keyArr = Object.keys(this);
   let str = ''; 
   let lineOut = ''; 
-  propArr.forEach( ([k, v]) => 
+  keyArr.forEach( (k) => 
   {
-    str = v.toString();
+    str = this[k].toString();
     if(b)
     { 
       lineOut += str.replace(/['"]+/g, ''); 
@@ -84,7 +84,7 @@ function makeComparator( auto1, auto2)
 {
 	let make1 = auto1.make.toLowerCase();
 	let make2 = auto2.make.toLowerCase();
-	return make1 > make2;
+	return make1 < make2;
 }
 
 /*This compares two automobiles based on their type. The ordering from "greatest" to "least" is as follows: roadster, pickup, suv, wagon, (types not otherwise listed). It should be case insensitive. If two cars are of equal type then the newest one by model year should be considered "greater".*/
@@ -100,8 +100,9 @@ function typeComparator( auto1, auto2)
 
 /*Your program should output the following to the console.log, including the opening and closing 5 stars. All values in parenthesis should be replaced with appropriate values. Each line is a seperate call to console.log.
 
-Each line representing a car should be produced via a logMe function. This function should be added to the Automobile class and accept a single boolean argument. If the argument is 'true' then it prints "year make model type" 
-with the year, make, model and type being the values appropriate for the automobile. If the argument is 'false' then the type is ommited and just the "year make model" is logged.
+Each line representing a car should be produced via a logMe function. This function should be added to the Automobile class and accept a single boolean argument. If the argument 
+is 'true' then it prints "year make model type" with the year, make, model and type being the values appropriate for the automobile. If the argument is 'false' then the type is 
+ommited and just the "year make model" is logged.
 
 *****
 The cars sorted by year are:
@@ -135,5 +136,6 @@ automobiles.forEach(function(a){a.logMe(false);});
 console.log("\nThe cars sorted by type are:");
 sortArr(typeComparator, automobiles);
 automobiles.forEach(function(a){a.logMe(true);});
+console.log('*****');
 
 
