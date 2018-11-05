@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="weatherFormContainer" class="container">
+    <form id="weatherForm"> 
+      <fieldset form="weatherForm">
+        <legend>Enter a Zip Code or a City Name</legend>
+        <label for="zip_field">Zip Code</label> 
+        <input id="zip_field" type="text" default="Zip Code" name="zip"/>
+        <input id="callWeatherApiZip" type="submit" value="Submit">
+        <br/> 
+        <span> - or -</span>
+        <br/> 
+        <label for="city_field">City Name</label> 
+        <input id="city_field" type="text" length="140" name="city" default="Antwerp"/>
+        <input id="callWeatherApiCity" type="submit" value="Submit">
+      </fieldset>
+			<fieldset>
+				<legend>Unit Format</legend>
+				<div>
+            <input type="radio" id="tempMetric" 
+                   name="tempUnits" value="metric" checked />
+            <label for="tempMetric">Metric</label>
+        </div>
+				<div>
+            <input type="radio" id="tempImperial" 
+                   name="tempUnits" value="imperial"/>
+            <label for="tempImperial">Imperial</label>
+        </div>
+			</fieldset>
+    </form>
+    <div id="weatherResponseView">
+			<p><span id="descriptionLabel">Description: </span><span id="description"></span></p>
+			<p><span id="tempLabel">Temperature (C): </span><span id="temp"></span></p>
+			<p><span id="humidityLabel">Relative Humidity: </span><span id="humidity"></span></p>
+    </div>
+  </div>
+
+    <div id="httpBinFormContainer" class="container">
+      <form id="httpBinForm">
+        <fieldset> 
+          <legend>Put text in this box and have it echoed back to you over HTTP!</legend>
+          <textarea id="userText" value="httpBinText" name="userText" wrap="soft" placeholder=""></textarea>
+          <input id="callHttpBinApiSubmit" type="submit" value="Submit">
+        </fieldset> 
+      </form>
+  
+      <div class="httpBinResponseView" id="httpBinApiResponseJson"><p>This is JSON</p></div> 
+      <div class="httpBinResponseView" id="httpBinApiResponseText"><p>This is text</p></div>
+    </div>
+    <script src="weather.js" defer></script>
+    <script src="httpbin.js" defer></script>
+  </body>
+</html>
