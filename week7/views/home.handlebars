@@ -1,0 +1,15 @@
+<h1>{{requestMethod}} Request Received</h1>
+
+{{#if parseableQuery}}
+<table style="border: 1px solid gray">
+  <thead>
+    <tr>
+      <th>Query Field</th>
+      <th>Query Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#queryHelper queryFields}}{{/queryHelper}}
+	</tbody>
+</table>
+{{/if}}

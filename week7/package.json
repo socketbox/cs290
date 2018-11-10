@@ -1,0 +1,12 @@
+{
+  "name": "week7-activity",
+  "version": "1.0.0",
+  "description": "Get and Post Checker",
+  "main": "app.js",
+	"author": "Casey Boettcher",
+	"dependencies": {
+		"express": "^4.16.4",
+		"express-handlebars": ">=3.0.0"
+	}
+}
+		
