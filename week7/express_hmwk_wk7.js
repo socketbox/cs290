@@ -1,53 +1,55 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars');
 var app = express();
 
 //create experss handlebars instance
 var exphbs = handlebars.create({
-	helpers: {
-		queryHelper: funcQueryHelper,
-	 	bodyHelper: funcBodyHelper
-	},
 	defaultLayout: 'main'
 });
 
 app.engine('handlebars', exphbs.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 44332);
+//app.use() MUST be called before assigning method handlers
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.get('/week7', weekSevenHandler);
+app.post('/week7', weekSevenHandler);
 
-app.get('/week7', week7Handler);
-app.post('/week7', week7Handler);
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
-
-function week7Handler(req, res)
-{ 
-	var context = {parseableQuery: true};
+function weekSevenHandler(req, res)
+{
+	var context = {
+    parseableQuery: false,
+    parseableBody: false
+  };
 	
-	if(Object.keys(req.query).length === 0 && req.query.constructor === Object)
-		context.parseableQuery = false;
-  
-	context.requestMethod = req.method;
-	context.queryFields = req.query;
-  
-	res.render('home', context);
-}
+  context.requestMethod = req.method;
 
-//HELPERS
-function funcQueryHelper(queryFields, options)
-{
-	var retVal = ""
-	for (const k of Object.keys(queryFields))
-	{
-		retVal = retVal + '<tr><td>'+k+'</td><td>'+queryFields[k]+'</td></tr>';	
-	}
-	return retVal;
-}
+	if(Object.keys(req.query).length !== 0)
+  {
+    context.parseableQuery = true;
+    let retArray = [];
+    for(const k of Object.keys(req.query))
+    {
+      retArray.push({'field':k, 'value':req.query[k]});
+    }
+    context.queryFields = retArray;
+  } 
 
-function funcBodyHelper(rb)
-{
+  if(context.requestMethod == 'POST' && Object.keys(req.body).length !== 0) 
+  {
+    context.parseableBody = true;
+    let retArray = [];
+    for(const k of Object.keys(req.body))
+    {
+      retArray.push({'field':k, 'value':req.body[k]});
+    }
+    context.bodyFields = retArray;
+  }
+    
+  res.render('home', context); 
 }
 
 app.listen(app.get('port'));
-
 
