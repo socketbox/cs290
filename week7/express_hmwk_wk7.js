@@ -14,7 +14,22 @@ app.set('port', 44332);
 //app.use() MUST be called before assigning method handlers
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+app.use(function(req,res){
+  res.type('text/plain');
+  res.status(404);
+  res.send('404 - Not Found');
+});
+
+app.use(function(err, req, res, next){
+  console.error(err.stack);
+  res.type('plain/text');
+  res.status(500);
+  res.send('500 - Server Error');
+});
+
 app.get('/week7', weekSevenHandler);
+
 app.post('/week7', weekSevenHandler);
 
 function weekSevenHandler(req, res)
