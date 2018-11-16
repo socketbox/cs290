@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="/style/basic.css">
+    </head>
+    <body>
+        {{{body}}}
+        <div id="footer">
+            {{#each footerBreadCrumbs.links}}
+                <span class="footer-site-link"><a href="{{url}}">{{text}}</a></span> 
+            {{/each}}
+        </div>
+    </body>
+</html>

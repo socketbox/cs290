@@ -1,0 +1,13 @@
+{
+  "name": "week6-project",
+  "version": "1.0.0",
+  "description": "charmingplumage.com",
+  "main": "app.js",
+  "author": "Casey Boettcher",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": ">=3.0.0",
+    "forever": "^0.15.3"
+  }
+}

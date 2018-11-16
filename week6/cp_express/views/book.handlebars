@@ -1,0 +1,40 @@
+<div id="main-container">
+    <div id="book-description-container">
+      <p id="book-description">
+        <em>In a future world, protagonist Mai Nguyen stumbles upon a wanted poster requesting the following:</em>
+        <span>Adventurous and philanthropic-types needed for documentation project. Attention to detail and accuracy a must. 
+          Time travel ability not required, but experience with said is a bonus. ~ From Charming Plumage</span>
+      </p>
+    </div> 
+    <div id="excerpt-download-container">
+      <form action="GET" method="{{protocol}}//{{hostname}}/pdf/excerpt_the_bird_book.pdf">
+        <input type="button" value="Download an Excerpt!">
+        </form>
+    </div>
+  </div>
+  <div id="excerpt-one-img-container">
+    <img src="/img/wanted_450w.jpg">
+  </div>
+  <div id="email-subscription-container">
+    <div id="appeal">
+      <p>
+        The Feather Collective seeks same in prospective early readers! What you need to do: 
+        Support a debut novel by reading it, reviewing it online, and promoting it on social media. Time commitment is 100 pages
+      </p>
+    </div>
+    <div id="email-form">
+      <form action="POST" method="/earlyreaders.html">
+        <div class="form-group">
+          <label for="readerName">Name:</label>
+          <input id="readerName" type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="readerEmail">Email address:</label>
+          <input type="email" id="readerEmail" name="_replyto" class="form-control" placeholder="your@email.com">
+        </div>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+  </div>
+</div>
+  <!-- comment -->
