@@ -6,11 +6,11 @@
         <link rel="stylesheet" href="/style/basic.css">
     </head>
     <body>
-        {{{body}}}
-        <div id="footer">
+        <div id="header">
             {{#each footerBreadCrumbs.links}}
-                <span class="footer-site-link"><a href="{{url}}">{{text}}</a></span> 
+                <span class="header-site-link"><a href="{{url}}">{{text}}</a></span> 
             {{/each}}
         </div>
+        {{{body}}}
     </body>
 </html>
