@@ -18,14 +18,14 @@
         </p>
       <div id="email-form">
       <!-- form action="POST" method="/earlyreaders.html" -->
-        <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="POST">
+        <form action="/subscribe" method="POST">
           <div class="form-group">
-            <label for="readerName">Name:</label>
-            <input id="readerName" type="text" name="name">
+            <label for="subscriberName">Name:</label>
+            <input id="subscriberName" type="text" name="name">
           </div>
           <div class="form-group">
-            <label class="sr-only" for="readerEmail">Email address:</label>
-            <input type="email" id="readerEmail" name="_replyto" class="form-control" placeholder="your@email.com">
+            <label for="subscriberEmail">Email address:</label>
+            <input type="email" id="subscriberEmail" name="email" class="form-control" placeholder="your@email.com">
           </div>
           <input type="submit" value="Send">
         </form>

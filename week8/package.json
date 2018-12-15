@@ -1,0 +1,23 @@
+{
+  "name": "country_comparison",
+  "version": "1.0.0",
+  "description": "compare the area, population and average density of two countries using https://restcountries.eu",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "memorystore": "^1.6.0",
+    "request": "^2.88.0",
+    "uid-safe": "^2.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "geography"
+  ],
+  "author": "Casey Boettcher",
+  "license": "ISC"
+}

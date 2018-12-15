@@ -1,0 +1,70 @@
+
+<form id="form-0">
+  <div>
+    <label for="exerciseName">Exercise Name:</label>
+    <input type="text" maxlength="64" size="65" pattern="[' '|\w]{0,64}" name="exerciseName" id="exerciseName-0"> 
+  </div> 
+  <div>
+    <label for="reps">Repetitions:</label>
+    <input type="text" maxlength="3" size="4" pattern="[0-9]{1,3}" placeholder="001" name="reps" id="reps-0"> 
+  </div> 
+  <div>
+    <label for="weight">Weight:</label>
+    <input type="text" maxlength="4" size="5" pattern="[0-9]{1,4}" name="weight" id="weight-0">
+  </div> 
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" id="date-0" name="date">
+  </div> 
+  <div>
+    <input type="radio" id="unitsLbs-0" name="units" value="lbs" checked>
+    <label for="unitsLbs">lbs</label>
+    <input type="radio" id="unitsKgs-0" name="units" value="kgs">
+    <label for="unitsKgs">kgs</label>
+  </div>
+  <input type="button" id="saveBttn-0" onmouseup="createRow()" value="Submit">
+</form>
+
+<table style="border: 1px solid gray">
+  <thead>
+    <tr>
+      <th>
+        <span>Exercise</span>
+        <span>Reps</span>
+        <span>Weight</span>
+        <span>Date</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.result}}
+    <tr id="row-{{this.id}}">
+      <td>
+        <form id="form-{{this.id}}" action="#">
+          <input type="hidden" class="pk" value="{{this.id}}">
+          <input type="button" class="deleteButton" id="deleteBttn-{{this.id}}" onmouseup="deleteRow()" value="Delete">
+          <input type="button" class="editButton" id="editBttn-{{this.id}}" onmouseup="editRow()" value="Edit">
+          <input type="button" class="saveButton" id="saveBttn-{{this.id}}" onmouseup="saveRow()" value="Save" hidden>
+          <input type="text" maxlength="64" size="65" pattern="[' '|\w]{0,64}" name="exerciseName" id="exerciseName-{{this.id}}" value="{{this.name}}" readonly>
+          <input type="text" maxlength="3" size="4" pattern="[0-9]{1,3}" placeholder="001" name="reps" id="reps-{{this.id}}" value="{{this.reps}}" readonly>
+          <input type="text" maxlength="4" size="5" pattern="[0-9]{1,4}" id="weight-{{this.id}}" name="weight" value="{{this.weight}}" readonly>
+          {{#if this.lbs}}
+          <label for="weight-{{this.id}}">lbs</label>
+          {{else}}
+          <label for="weight-{{this.id}}">kgs</label>
+          {{/if}} 
+          <input type="radio" id="unitsKgs-{{this.id}}" name="units" hidden>
+          <input type="radio" id="unitsLbs-{{this.id}}" name="units" hidden>
+          <input type="text" maxlength="10" size="11" id="date-{{this.id}}" name="date" value="{{this.date}}" readonly>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+	</tbody>
+</table>
+<script src="../client.js" defer></script>
+
+<div id="resetButtonCntr">
+  <input type="button" value="Clear Workouts" onclick="confirm('This will destroy all information you see on this page. Do you want to proceed?') ? clearTable() : alert('That was close...')">
+</div>
+

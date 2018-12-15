@@ -1,0 +1,21 @@
+<tr id="row-{{this.sqlResult.insertId}}">
+    <td>
+    <form id="form-{{this.sqlResult.insertId}}" action="#">
+        <input type="hidden" class="pk" value="{{this.sqlResult.insertId}}">
+        <input type="button" class="deleteButton" id="deleteBttn-{{this.sqlResult.insertId}}" onmouseup="deleteRow()" value="Delete">
+        <input type="button" class="editButton" id="editBttn-{{this.sqlResult.insertId}}" onmouseup="editRow()" value="Edit">
+        <input type="button" class="saveButton" id="saveBttn-{{this.sqlResult.insertId}}" onmouseup="saveRow()" value="Save" hidden>
+        <input type="text" maxlength="64" size="65" pattern="[' '|\w]{0,64}" name="exerciseName" id="exerciseName-{{this.sqlResult.insertId}}" value="{{this.reqBody.[0]}}" readonly>
+        <input type="text" maxlength="3" size="4" pattern="[0-9]{1,3}" placeholder="001" name="reps" id="reps-{{this.sqlResult.insertId}}" value="{{this.reqBody.[1]}}" readonly>
+        <input type="text" maxlength="4" size="5" pattern="[0-9]{1,4}" id="weight-{{this.sqlResult.insertId}}" name="weight" value="{{this.reqBody.[2]}}" readonly>
+        {{#if this.reqBody.[4]}}
+        <label for="weight-{{this.sqlResult.insertId}}">lbs</label>
+        {{else}}
+        <label for="weight-{{this.sqlResult.insertId}}">kgs</label>
+        {{/if}} 
+        <input type="radio" id="unitsKgs-{{this.sqlResult.insertId}}" name="units" hidden>
+        <input type="radio" id="unitsLbs-{{this.sqlResult.insertId}}" name="units" hidden>
+        <input type="text" maxlength="10" size="11" id="date-{{this.sqlResult.insertId}}" name="date" value="{{this.reqBody.[3]}}" readonly>
+    </form>
+    </td>
+</tr>

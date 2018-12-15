@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS workouts;
+CREATE TABLE workouts(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    reps INT,
+    weight INT,
+    date DATE,
+    lbs BOOLEAN);
+
+INSERT INTO workouts VALUES (0,'Crunches', 50, 0, CURDATE(), TRUE);

@@ -1,0 +1,18 @@
+
+{{#if failure}}
+<h2>Error Encountered</h2>
+<p>We encountered an error while processing your request. Please try subscribing to our list with a different email or name.</p>
+<h3>Error:</h3>
+<p>{{mailInfo.error}}</p>
+{{/if}}
+
+{{#if success}}
+<h2>Thank You!</h2>
+<p>Your request was received and we will contact you before the book officially debuts.</p>
+<pre>
+    messageId: {{mailInfo.messageId}}
+    envelope address: {{mailInfo.envelope.from}}
+    server response: {{mailInfo.response}}
+</pre>
+{{/if}}
+

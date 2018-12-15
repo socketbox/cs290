@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <pre>student: Casey Boettcher 
+onid: boettchc
+class: cs290-400-F2018
+date: 2018-11-18
+</pre>
+
+<h2>Notes Regarding Rubric Items:</h2>
+
+<h3>Carousel</h3>
+<p>The sequence of images is automated and can't be controlled by the user. I
+wanted a vanilla javascript solution that allowed for a fading transition, but
+couldn't find one, so I hacked this together using CSS keyframe animation.
+<p>It needs to be event-driven, but I spent so much time getting it to work 
+using sequential logic that a revised version wasn't in the cards.
+
+<h3>Scrollbar</h3>
+<p>The scrollbox is on the "Birds and the Biosphere" page. It allows the user
+to see all of the immense image that it obscures. I realize that, in practice,
+an image of this size (on disk) would be too large for a responsive site.
+
+<h3>Form Submission</h3>
+<p>This is done using the Nodemailer library and an SMTP relay service 
+(SendGrid). Email goes to a Gmail account that is setup on a registered
+domain (charmingplumage.com). Initially, I had trouble getting the SMTP
+server results in the rendered page, but then I realized that I could just
+the Express Handlebars <code>render()</code> function as the callback to the
+<code>sendMail()</code> function and pass in the info/error objects that way.
+
+<h3>Unordered List</h3>
+This is on the "Birds and the Biosphere" page.
+
+<h3>Download File</h3>
+An excerpt of the book is available via a button on the "The Book" page.
+
+<h3>External Links</h3>
+Outside webpages are linked to via the "Birds and the Biosphere Page."
+
+</body>
+</html>
